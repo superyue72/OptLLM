@@ -1,21 +1,28 @@
 from torch import nn
+import torch
 
 class MLP(nn.Module):
-    def __init__(self, input_size, num_layers, num_class, hidden_size, criterion=nn.CrossEntropyLoss()):
-        super().__init__()
-        self.mlp = [
-            nn.ModuleList(
-                
-            )
-        ]
-        self.linear = nn.Linear(hidden_size, num_class)
+    """ 
+    A simple MLP with 1 hidden layer for multilabel (n_label) classification
+    """
+    def __init__(self, input_dim, hidden_dim, n_label, dropout=0.2, criterion=nn.BCELoss()):
+        super(MLP, self).__init__()
+        self.fc1 = nn.Linear(input_dim, hidden_dim)
+        self.fc2 = nn.Linear(hidden_dim, n_label)
+        self.dropout = nn.Dropout(dropout)
+        self.sigmoid = nn.Sigmoid()
         self.criterion = criterion
-    
-    def forward(self, X, Y=None, device='cpu'):
-        X = X.to(device)
-        X = self.mlp1(X)
-        X = self.dropout(X)
-        X = self.mlp2(X)
-        if Y is not None:
 
-
+    def forward(self, x, y=None, device='cpu'):
+        x = self.fc1(x)
+        x = self.dropout(x)
+        x = self.fc2(x)
+        x = self.sigmoid(x)
+        loss = None
+        if y is not None:
+            loss = self.criterion(x, y.to(device))
+        return {
+            "logits": x,
+            "probabilities": x,
+            "loss": loss,
+        }
