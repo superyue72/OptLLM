@@ -22,7 +22,7 @@ if __name__ == '__main__':
         test_data_size = 0.99
         print(f"Processing {dataset} dataset")
         data_dir = f"datasets/{tasks}"
-        save_dir = f"output/text_classification/query_{test_data_size}/{dataset}_{test_data_size}"
+        save_dir = f"output/{tasks}/query_{test_data_size}/{dataset}_{test_data_size}"
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
 
