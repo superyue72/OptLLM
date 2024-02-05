@@ -5,3 +5,5 @@
 *.zip
 *.bin
 *.vec
+output/
+datasets/text_queries.csv
