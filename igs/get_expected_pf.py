@@ -16,7 +16,6 @@ class get_expected_pareto_front(object):
             min_index = cost[cost == cost.min()].index[0]
             min_index_list = cost[cost == cost.min()].index.tolist()
             if len(min_index_list) > 1:
-                print(min_index_list)
                 accuracy = self.df_pred_accuracy.iloc[x]
                 all_accuracy = accuracy[min_index_list]
                 max_accuracy = max(all_accuracy)

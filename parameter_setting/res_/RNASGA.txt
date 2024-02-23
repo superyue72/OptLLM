@@ -1,0 +1,113 @@
+--------------------------Start RNSGA2 optimization--------------------------
+Trial 2 finished with value: 0.6752082541536519 and parameters: {'epsilon': 0.10200981576983637}. Best is trial 2 with value: 0.6752082541536519.
+Trial 2 finished with best value: 0.6752082541536519 and parameters: {'epsilon': 0.10200981576983637}. 
+Trial 12 finished with value: 0.6916357270235136 and parameters: {'epsilon': 0.3033718644317388}. Best is trial 2 with value: 0.6752082541536519.
+Trial 5 finished with value: 0.7323300520196887 and parameters: {'epsilon': 0.5586150097009452}. Best is trial 2 with value: 0.6752082541536519.
+Trial 7 finished with value: 0.6899223083993037 and parameters: {'epsilon': 0.28604777093680056}. Best is trial 2 with value: 0.6752082541536519.
+Trial 11 finished with value: 0.7110558605374253 and parameters: {'epsilon': 0.4314959924719408}. Best is trial 2 with value: 0.6752082541536519.
+Trial 0 finished with value: 0.7164336175519511 and parameters: {'epsilon': 0.09628750725368307}. Best is trial 2 with value: 0.6752082541536519.
+Trial 6 finished with value: 0.6876027348250322 and parameters: {'epsilon': 0.9333092893530021}. Best is trial 2 with value: 0.6752082541536519.
+Trial 1 finished with value: 0.7860380582089255 and parameters: {'epsilon': 0.8689290820285729}. Best is trial 2 with value: 0.6752082541536519.
+Trial 3 finished with value: 0.7374219568274845 and parameters: {'epsilon': 0.23326020268819414}. Best is trial 2 with value: 0.6752082541536519.
+Trial 9 finished with value: 0.6597853521824355 and parameters: {'epsilon': 0.109110919453975}. Best is trial 9 with value: 0.6597853521824355.
+Trial 9 finished with best value: 0.6597853521824355 and parameters: {'epsilon': 0.109110919453975}. 
+Trial 4 finished with value: 0.6448092057678398 and parameters: {'epsilon': 0.07584997662763704}. Best is trial 4 with value: 0.6448092057678398.
+Trial 4 finished with best value: 0.6448092057678398 and parameters: {'epsilon': 0.07584997662763704}. 
+Trial 15 finished with value: 0.6645302624267515 and parameters: {'epsilon': 0.6569772901235866}. Best is trial 4 with value: 0.6448092057678398.
+Trial 8 finished with value: 0.7564335935824811 and parameters: {'epsilon': 0.27714193915854524}. Best is trial 4 with value: 0.6448092057678398.
+Trial 10 finished with value: 0.702798276440733 and parameters: {'epsilon': 0.4022853963289925}. Best is trial 4 with value: 0.6448092057678398.
+Trial 13 finished with value: 0.6989565224377172 and parameters: {'epsilon': 0.7665485788817352}. Best is trial 4 with value: 0.6448092057678398.
+Trial 14 finished with value: 0.6407289514252514 and parameters: {'epsilon': 0.11969738643435446}. Best is trial 14 with value: 0.6407289514252514.
+Trial 14 finished with best value: 0.6407289514252514 and parameters: {'epsilon': 0.11969738643435446}. 
+Trial 16 finished with value: 0.6193701231527163 and parameters: {'epsilon': 0.4350815701078514}. Best is trial 16 with value: 0.6193701231527163.
+Trial 16 finished with best value: 0.6193701231527163 and parameters: {'epsilon': 0.4350815701078514}. 
+Trial 17 finished with value: 0.7352803502767993 and parameters: {'epsilon': 0.663392492633453}. Best is trial 16 with value: 0.6193701231527163.
+Trial 18 finished with value: 0.6549248250071374 and parameters: {'epsilon': 0.04005743436173781}. Best is trial 16 with value: 0.6193701231527163.
+Trial 19 finished with value: 0.6367759754259936 and parameters: {'epsilon': 0.42951949309256443}. Best is trial 16 with value: 0.6193701231527163.
+Trial 20 finished with value: 0.6534337148509811 and parameters: {'epsilon': 0.39043006733141195}. Best is trial 16 with value: 0.6193701231527163.
+Trial 22 finished with value: 0.716121845227355 and parameters: {'epsilon': 0.9121359515040062}. Best is trial 16 with value: 0.6193701231527163.
+Trial 21 finished with value: 0.637235501581525 and parameters: {'epsilon': 0.8897251076516246}. Best is trial 16 with value: 0.6193701231527163.
+Trial 23 finished with value: 0.6995554443605088 and parameters: {'epsilon': 0.430378258500111}. Best is trial 16 with value: 0.6193701231527163.
+Trial 24 finished with value: 0.6188197595962988 and parameters: {'epsilon': 0.6964825590868029}. Best is trial 24 with value: 0.6188197595962988.
+Trial 24 finished with best value: 0.6188197595962988 and parameters: {'epsilon': 0.6964825590868029}. 
+Trial 28 finished with value: 0.6961692068934262 and parameters: {'epsilon': 0.01261560053263544}. Best is trial 24 with value: 0.6188197595962988.
+Trial 27 finished with value: 0.7674064740970515 and parameters: {'epsilon': 0.01609772500532647}. Best is trial 24 with value: 0.6188197595962988.
+Trial 25 finished with value: 0.79444926389561 and parameters: {'epsilon': 0.0015543573815502004}. Best is trial 24 with value: 0.6188197595962988.
+Trial 26 finished with value: 0.6894449757860893 and parameters: {'epsilon': 0.043632977118569186}. Best is trial 24 with value: 0.6188197595962988.
+Trial 29 finished with value: 0.6647739972477108 and parameters: {'epsilon': 0.005492859874921513}. Best is trial 24 with value: 0.6188197595962988.
+Trial 30 finished with value: 0.6648414298564087 and parameters: {'epsilon': 0.0020152188629782297}. Best is trial 24 with value: 0.6188197595962988.
+Trial 31 finished with value: 0.6897772220916336 and parameters: {'epsilon': 0.028631525091981413}. Best is trial 24 with value: 0.6188197595962988.
+Trial 32 finished with value: 0.7322808356374308 and parameters: {'epsilon': 0.5583249915160412}. Best is trial 24 with value: 0.6188197595962988.
+Trial 34 finished with value: 0.6632386154635062 and parameters: {'epsilon': 0.003266515739467818}. Best is trial 24 with value: 0.6188197595962988.
+Trial 33 finished with value: 0.6983446775456682 and parameters: {'epsilon': 0.0014457052260180708}. Best is trial 24 with value: 0.6188197595962988.
+Trial 35 finished with value: 0.6922686471060998 and parameters: {'epsilon': 0.5004537624450587}. Best is trial 24 with value: 0.6188197595962988.
+Trial 36 finished with value: 0.7250341127422425 and parameters: {'epsilon': 0.5155597552986998}. Best is trial 24 with value: 0.6188197595962988.
+Trial 37 finished with value: 0.7400677860788155 and parameters: {'epsilon': 0.5394079534057926}. Best is trial 24 with value: 0.6188197595962988.
+Trial 38 finished with value: 0.6594309099443997 and parameters: {'epsilon': 0.5557402815223977}. Best is trial 24 with value: 0.6188197595962988.
+Trial 39 finished with value: 0.6909345250081368 and parameters: {'epsilon': 0.5724585827747949}. Best is trial 24 with value: 0.6188197595962988.
+Trial 40 finished with value: 0.6942320696978624 and parameters: {'epsilon': 0.5503145194256145}. Best is trial 24 with value: 0.6188197595962988.
+Trial 42 finished with value: 0.6996948945041859 and parameters: {'epsilon': 0.5334599139652859}. Best is trial 24 with value: 0.6188197595962988.
+Trial 43 finished with value: 0.650036701099624 and parameters: {'epsilon': 0.5283774054305729}. Best is trial 24 with value: 0.6188197595962988.
+Trial 41 finished with value: 0.6409631031258081 and parameters: {'epsilon': 0.5392275540875265}. Best is trial 24 with value: 0.6188197595962988.
+Trial 45 finished with value: 0.6212351784787598 and parameters: {'epsilon': 0.5841535218563458}. Best is trial 24 with value: 0.6188197595962988.
+Trial 44 finished with value: 0.7575028263440977 and parameters: {'epsilon': 0.5150647219685506}. Best is trial 24 with value: 0.6188197595962988.
+Trial 46 finished with value: 0.7362463981732057 and parameters: {'epsilon': 0.504327012547164}. Best is trial 24 with value: 0.6188197595962988.
+Trial 47 finished with value: 0.6376573237725626 and parameters: {'epsilon': 0.9909426487901803}. Best is trial 24 with value: 0.6188197595962988.
+Trial 48 finished with value: 0.7912932459966533 and parameters: {'epsilon': 0.9872536971127082}. Best is trial 24 with value: 0.6188197595962988.
+Trial 49 finished with value: 0.7189360124425302 and parameters: {'epsilon': 0.821612269143843}. Best is trial 24 with value: 0.6188197595962988.
+Trial 50 finished with value: 0.6068194175816372 and parameters: {'epsilon': 0.9963807589971865}. Best is trial 50 with value: 0.6068194175816372.
+Trial 50 finished with best value: 0.6068194175816372 and parameters: {'epsilon': 0.9963807589971865}. 
+Trial 51 finished with value: 0.6927251926035254 and parameters: {'epsilon': 0.8525165860502932}. Best is trial 50 with value: 0.6068194175816372.
+Trial 52 finished with value: 0.7343023063080375 and parameters: {'epsilon': 0.9979019274709084}. Best is trial 50 with value: 0.6068194175816372.
+Trial 54 finished with value: 0.6548525723886024 and parameters: {'epsilon': 0.8358901747266988}. Best is trial 50 with value: 0.6068194175816372.
+Trial 53 finished with value: 0.7470216922187238 and parameters: {'epsilon': 0.8603322182232073}. Best is trial 50 with value: 0.6068194175816372.
+Trial 55 finished with value: 0.6791538600859485 and parameters: {'epsilon': 0.9699171502060202}. Best is trial 50 with value: 0.6068194175816372.
+Trial 56 finished with value: 0.8350153742906229 and parameters: {'epsilon': 0.9795036270377493}. Best is trial 50 with value: 0.6068194175816372.
+Trial 57 finished with value: 0.6395840860935061 and parameters: {'epsilon': 0.8587866708950466}. Best is trial 50 with value: 0.6068194175816372.
+Trial 59 finished with value: 0.7026862704943879 and parameters: {'epsilon': 0.9993609069021379}. Best is trial 50 with value: 0.6068194175816372.
+Trial 58 finished with value: 0.8857033951301336 and parameters: {'epsilon': 0.9895020529514484}. Best is trial 50 with value: 0.6068194175816372.
+Trial 61 finished with value: 0.7486128797926739 and parameters: {'epsilon': 0.8761056733023175}. Best is trial 50 with value: 0.6068194175816372.
+Trial 60 finished with value: 0.6626214237759612 and parameters: {'epsilon': 0.8184684139418779}. Best is trial 50 with value: 0.6068194175816372.
+Trial 62 finished with value: 0.6881842240230669 and parameters: {'epsilon': 0.9787880846276099}. Best is trial 50 with value: 0.6068194175816372.
+Trial 63 finished with value: 0.648139988055647 and parameters: {'epsilon': 0.7646651257945041}. Best is trial 50 with value: 0.6068194175816372.
+Trial 70 finished with value: 0.7395053255620078 and parameters: {'epsilon': 0.9237819238238615}. Best is trial 50 with value: 0.6068194175816372.
+Trial 69 finished with value: 0.6424304459297594 and parameters: {'epsilon': 0.9010226219747877}. Best is trial 50 with value: 0.6068194175816372.
+Trial 64 finished with value: 0.7028864596072998 and parameters: {'epsilon': 0.8243070887606918}. Best is trial 50 with value: 0.6068194175816372.
+Trial 65 finished with value: 0.6748454482867599 and parameters: {'epsilon': 0.6135217155274133}. Best is trial 50 with value: 0.6068194175816372.
+Trial 66 finished with value: 0.7222178433485731 and parameters: {'epsilon': 0.8578181359058855}. Best is trial 50 with value: 0.6068194175816372.
+Trial 71 finished with value: 0.7343079697890427 and parameters: {'epsilon': 0.9149360631394323}. Best is trial 50 with value: 0.6068194175816372.
+Trial 67 finished with value: 0.6173491233733184 and parameters: {'epsilon': 0.9372638020949895}. Best is trial 50 with value: 0.6068194175816372.
+Trial 68 finished with value: 0.7156056159169772 and parameters: {'epsilon': 0.7557962394313983}. Best is trial 50 with value: 0.6068194175816372.
+Trial 72 finished with value: 0.7744761746314025 and parameters: {'epsilon': 0.9042220848904191}. Best is trial 50 with value: 0.6068194175816372.
+Trial 73 finished with value: 0.6766984743250042 and parameters: {'epsilon': 0.7481660685856393}. Best is trial 50 with value: 0.6068194175816372.
+Trial 74 finished with value: 0.7273595258848735 and parameters: {'epsilon': 0.9296991336960925}. Best is trial 50 with value: 0.6068194175816372.
+Trial 76 finished with value: 0.6905818822603074 and parameters: {'epsilon': 0.923292581907633}. Best is trial 50 with value: 0.6068194175816372.
+Trial 77 finished with value: 0.6292710702798266 and parameters: {'epsilon': 0.9472687180427163}. Best is trial 50 with value: 0.6068194175816372.
+Trial 75 finished with value: 0.7039112574553081 and parameters: {'epsilon': 0.9249669861494789}. Best is trial 50 with value: 0.6068194175816372.
+Trial 78 finished with value: 0.7087240140793895 and parameters: {'epsilon': 0.9284908446175968}. Best is trial 50 with value: 0.6068194175816372.
+Trial 79 finished with value: 0.7020242258349563 and parameters: {'epsilon': 0.9073662758670965}. Best is trial 50 with value: 0.6068194175816372.
+Trial 80 finished with value: 0.669354368090135 and parameters: {'epsilon': 0.9400684758299157}. Best is trial 50 with value: 0.6068194175816372.
+Trial 81 finished with value: 0.8257245165920667 and parameters: {'epsilon': 0.9550895913114282}. Best is trial 50 with value: 0.6068194175816372.
+Trial 85 finished with value: 0.6264803472786789 and parameters: {'epsilon': 0.44612154983597446}. Best is trial 50 with value: 0.6068194175816372.
+Trial 82 finished with value: 0.6167431603091266 and parameters: {'epsilon': 0.9514247671206111}. Best is trial 50 with value: 0.6068194175816372.
+Trial 84 finished with value: 0.7724710515032397 and parameters: {'epsilon': 0.9489444679927476}. Best is trial 50 with value: 0.6068194175816372.
+Trial 83 finished with value: 0.6481525466151398 and parameters: {'epsilon': 0.943823777043787}. Best is trial 50 with value: 0.6068194175816372.
+Trial 86 finished with value: 0.6544198101745087 and parameters: {'epsilon': 0.9611250329848935}. Best is trial 50 with value: 0.6068194175816372.
+Trial 87 finished with value: 0.6901491292673492 and parameters: {'epsilon': 0.9469075979536067}. Best is trial 50 with value: 0.6068194175816372.
+Trial 88 finished with value: 0.7573686813315427 and parameters: {'epsilon': 0.9486782717251748}. Best is trial 50 with value: 0.6068194175816372.
+Trial 89 finished with value: 0.8569777827027939 and parameters: {'epsilon': 0.9489394294301395}. Best is trial 50 with value: 0.6068194175816372.
+Trial 90 finished with value: 0.6605713701579723 and parameters: {'epsilon': 0.4679957866103335}. Best is trial 50 with value: 0.6068194175816372.
+Trial 91 finished with value: 0.6716572696254519 and parameters: {'epsilon': 0.9440791300655795}. Best is trial 50 with value: 0.6068194175816372.
+Trial 92 finished with value: 0.6854372143178885 and parameters: {'epsilon': 0.9523810035348508}. Best is trial 50 with value: 0.6068194175816372.
+Trial 93 finished with value: 0.6704549830626977 and parameters: {'epsilon': 0.4626384125144506}. Best is trial 50 with value: 0.6068194175816372.
+Trial 94 finished with value: 0.7138978771426077 and parameters: {'epsilon': 0.9651229586619503}. Best is trial 50 with value: 0.6068194175816372.
+Trial 95 finished with value: 0.8971750296199497 and parameters: {'epsilon': 0.9564874449300962}. Best is trial 50 with value: 0.6068194175816372.
+Trial 96 finished with value: 0.6503922140126231 and parameters: {'epsilon': 0.4617563905171459}. Best is trial 50 with value: 0.6068194175816372.
+Trial 97 finished with value: 0.8025270539837918 and parameters: {'epsilon': 0.9546365301127429}. Best is trial 50 with value: 0.6068194175816372.
+Trial 98 finished with value: 0.697429423533711 and parameters: {'epsilon': 0.46502076463204894}. Best is trial 50 with value: 0.6068194175816372.
+Trial 99 finished with value: 0.7592842714854782 and parameters: {'epsilon': 0.4736307319327821}. Best is trial 50 with value: 0.6068194175816372.
+best params:  {'epsilon': 0.9963807589971865} best value:  0.6068194175816372
+--------------------------Finish RNSGA2 optimization--------------------------
+
+
+
