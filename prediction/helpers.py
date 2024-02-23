@@ -17,13 +17,15 @@ from sklearn.model_selection import train_test_split
 #     return np.mean(word_vecs, axis=0)
 
 
-def split_train_test_(train_data, test_data):
+def split_train_test_(train_data, val_data, test_data):
     train_x = [x['features'] for x in train_data]
     train_y = [list(y['label'].values()) for y in train_data]
     test_x = [x['features'] for x in test_data]
     test_y = [list(y['label'].values()) for y in test_data]
+    val_x = [x['features'] for x in val_data]
+    val_y = [list(y['label'].values()) for y in val_data]
 
-    return train_x, train_y, test_x, test_y
+    return train_x, train_y, val_x, val_y, test_x, test_y
 
 def split_train_test_random(X, Y, test_size):
     # train = data[data['System'] != dataset]

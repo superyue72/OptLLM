@@ -51,7 +51,7 @@ class iterative_greedy_search_(object):
                 max_index = accuracy[accuracy == accuracy.max()].index[0]
                 max_index_list = accuracy[accuracy == accuracy.max()].index.tolist()
                 if len(max_index_list) > 1:
-                    print(max_index_list)
+                    # print(max_index_list)
                     cost = self.df_cost.iloc[x]
                     all_cost = cost[max_index_list]
                     min_cost = min(all_cost)
@@ -243,7 +243,7 @@ class iterative_greedy_search_(object):
 
     def run(self):
         start_time = time.time()
-        print('----------Start to get expected pareto front!----------')
+        print('----------Start to get expected pareto front by IGS!----------')
         s_cheapest, s_high_accuracy = self.get_exreme_solution_()
         res_cheapest = self.ls_fitness_function_(s_cheapest)
         res_high_accuracy = self.ls_fitness_function_(s_high_accuracy)
@@ -284,9 +284,9 @@ class iterative_greedy_search_(object):
 
         elapsed_time = time.time() - start_time
         igs_res = pd.DataFrame(nondominated_res, columns=['cost', 'expected_accuracy'])
-
         igs_res['true_accuracy'] = self.get_true_accuracy_obj_(nondominated_solutions)
-        print("Local search without initial and fill gap finished and the searchiing time is: ", elapsed_time)
+
+        print("IGS finished and the searchiing time is: ", elapsed_time)
 
         return igs_res, nondominated_solutions
 

@@ -1,0 +1,1 @@
+{"crossover_prob": 0.7779860983230351, "crossover_eta": 7, "mutation_prob": 0.8119322673317427, "mutation_eta": 9, "sampling": "LHS", "selection": "TournamentSelection"}
