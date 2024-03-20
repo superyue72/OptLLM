@@ -42,7 +42,6 @@ Furthermore, we have chosen an intelligent software engineering (SE) task, speci
 #### 3.4.2 The robustness parameter ``` α ```:
 <p align="center"><img src="images/alpha.png" width="500"><br>Accuracy of prediction model with different $\alpha$</p>
 
-
 #### 3.4.3 The grid parameter ``` GN```:
 <p align="center"><img src="images/gn.png" width="800"><br>Comparison of OptLLM with different settings of GN</p>
 
