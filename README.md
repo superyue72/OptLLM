@@ -11,10 +11,10 @@ OptLLM, an efficient framework for selecting the most suitable LLM API for a giv
 
 ## 2. Benchmarks
 ### 2.1 Natural Language Processing (NLP) jobs
-To show the generality of OptLLM on different types of jobs, we have chosen four general natural language processing tasks, including text classification(AGNEWS^[1]), question answering (COQA^[2]), sentiment analysis (HEADLINES^[3]),  and reasoning(SCIQ^[4]). 12 candidate LLMs are selected from 4 mainstream providers: OpenAI (GPT-Curie, ChatGPT, GPT-3, and GPT-4), AI21 (J1-Large, J1-Grande, and J1-Jumbo), Anthropic (Xlarge and Medium), and EleutherAI (GPT-J, FAIRSEQ, and GPT-Neox). The raw data is provided by Chen et al.^[5], which contains the inputs (prompts) sent to the LLMs, ground truth references, LLM outputs, and cost. 
+To show the generality of OptLLM on different types of jobs, we have chosen four general natural language processing tasks, including text classification(AGNEWS[^1]), question answering (COQA[^2]), sentiment analysis (HEADLINES[^3]),  and reasoning(SCIQ[^4]). 12 candidate LLMs are selected from 4 mainstream providers: OpenAI (GPT-Curie, ChatGPT, GPT-3, and GPT-4), AI21 (J1-Large, J1-Grande, and J1-Jumbo), Anthropic (Xlarge and Medium), and EleutherAI (GPT-J, FAIRSEQ, and GPT-Neox). The raw data is provided by Chen et al.^[5], which contains the inputs (prompts) sent to the LLMs, ground truth references, LLM outputs, and cost. 
 
 ### 2.2 Domain-specific tasks
-Furthermore, we have chosen an intelligent software engineering (SE) task, specifically focusing on LLM-based log parsing. We utilize log data sourced from the LogPai benchmark^[6,7] to interface with 8 LLM APIs, including TogertherAI (llama2_7b, llama2_13b, llama2_70b, Mixtral_8x7B, Yi_34B, and Yi_6B), AI21(J2-Mid and J2-Ultra).} The LogPai benchmark consists of log data from 16 systems, including distributed systems, supercomputers, operating systems, mobile systems, server applications, and standalone software. The raw data includes inputs (queries and full prompts) sent to the LLMs, ground truth references, LLM outputs, and the corresponding execution costs. The details of the datasets are listed in Table.
+Furthermore, we have chosen an intelligent software engineering (SE) task, specifically focusing on LLM-based log parsing. We utilize log data sourced from the LogPai benchmark[^6,^7] to interface with 8 LLM APIs, including TogertherAI (llama2_7b, llama2_13b, llama2_70b, Mixtral_8x7B, Yi_34B, and Yi_6B), AI21(J2-Mid and J2-Ultra).} The LogPai benchmark consists of log data from 16 systems, including distributed systems, supercomputers, operating systems, mobile systems, server applications, and standalone software. The raw data includes inputs (queries and full prompts) sent to the LLMs, ground truth references, LLM outputs, and the corresponding execution costs. The details of the datasets are listed in Table.
 
 ## 3 Results
 ### 3.1 Metrics
@@ -47,7 +47,7 @@ Furthermore, we have chosen an intelligent software engineering (SE) task, speci
 <p align="center"><img src="images/gn.png" width="800"><br>Comparison of OptLLM with different settings of GN</p>
 
 ## 4. Requirements
-All the code is available under `LocalSearch` directory.
+All the code is available under `OptLLM` directory.
 ### 4.1 Library
 1. Python 3.11
 2. Pymoo
@@ -64,7 +64,7 @@ $ python main.py $
 ### 4.3 Source code
 All source code is available under `OptLLM/igs` directory.
 
-We used the standard version of NSGA-II, R-NSGA-II and SMS-EMOA implemented in the Pymoo library[^2], and MOPSO and MOEA/D in the Pygmo. 
+We used the standard version of NSGA-II, R-NSGA-II and SMS-EMOA implemented in the Pymoo library[^8], and MOPSO and MOEA/D in the Pygmo. 
 The source code of the baselines is available under `OptLLM/baselines` directory.
 
 | script       | Description                                                               |
