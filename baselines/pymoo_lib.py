@@ -5,6 +5,7 @@ from pymoo.core.problem import ElementwiseProblem
 from pymoo.operators.sampling.lhs import LHS
 from pymoo.operators.sampling.rnd import FloatRandomSampling
 from pymoo.operators.selection.tournament import TournamentSelection
+from pymoo.algorithms.moo.nsga2 import binary_tournament
 from pymoo.optimize import minimize
 from pymoo.termination import get_termination
 from pymoo.core.problem import StarmapParallelization
@@ -81,7 +82,7 @@ class sms_emoa(object):
             for i in range(len(solution)):
                 res += self.df_true_accuracy.iloc[i, solution[i]]
             parsed_num_list.append(res)
-            true_accuracy.append(res / len(pareto_solutions[0]))
+            true_accuracy.append(res / len(solution))
         return true_accuracy
 
     def run(self):
@@ -90,9 +91,9 @@ class sms_emoa(object):
                                       self.n_var, self.m_max)
         # termination = get_termination("time", self.termination)
         termination = get_termination("n_gen", self.termination)
-        algorithm = SMSEMOA(pop_size=100,
-                            crossover=SBX(prob=0.9167, eta=29),
-                            mutation=PM(prob=0.7388, eta=16),
+        algorithm = SMSEMOA(pop_size=10,
+                            crossover=SBX(prob=0.7595, eta=5),
+                            mutation=PM(prob=0.0675, eta=28),
                             sampling=FloatRandomSampling(),
                             )
         print("Start SMS-EMOA searching!")
@@ -103,6 +104,7 @@ class sms_emoa(object):
                        verbose=False)
         smsemoa_res = res.F
         smsemoa_solution = res.X
+        print(len(smsemoa_solution))
         smsemoa_solutions_int = smsemoa_solution.astype(int)
         smsemoa_res[:, 1] = smsemoa_res[:, 1] * -1
         elapsed_time = time.time() - start_time
@@ -111,6 +113,7 @@ class sms_emoa(object):
         smsemoa_res['time'] = elapsed_time
         smsemoa_res['true_accuracy'] = self.get_true_accuracy_obj_( smsemoa_solutions_int)
         print("SMS-EMOA finished and the searchiing time is: ", elapsed_time)
+        print("SMS-EMOA num:", len(smsemoa_res))
 
         return smsemoa_res, smsemoa_solutions_int #, elapsed_time
 
@@ -132,7 +135,7 @@ class nsga2(object):
             for i in range(len(solution)):
                 res += self.df_true_accuracy.iloc[i, solution[i]]
             parsed_num_list.append(res)
-            true_accuracy.append(res / len(pareto_solutions[0]))
+            true_accuracy.append(res / len(solution))
         return true_accuracy
     def run(self):
         start_time = time.time()
@@ -144,9 +147,9 @@ class nsga2(object):
         termination = get_termination("n_gen", self.termination)
         algorithm = NSGA2(pop_size=100,
                           sampling=LHS(),
-                          selection=RandomSelection(),
-                          crossover=SBX(prob=0.9053, eta=24, vtype=int, repair=RoundingRepair()),
-                          mutation=PM(prob=0.0023, eta=6, vtype=int, repair=RoundingRepair()),
+                          selection = TournamentSelection(func_comp=binary_tournament),
+                          crossover=SBX(prob=0.7780, eta=7, vtype=int, repair=RoundingRepair()),
+                          mutation=PM(prob=0.8119, eta=9, vtype=int, repair=RoundingRepair()),
                           eliminate_duplicates=True,
                           )
         print("Start NSGA-2 searching!")
@@ -164,6 +167,7 @@ class nsga2(object):
         nsga2_res['time'] = elapsed_time
         nsga2_res['true_accuracy'] = self.get_true_accuracy_obj_(nsga_solution)
         print("NSGA-2 finished and the searchiing time is: ", elapsed_time)
+        print("NSGA-2 num:", len(nsga2_res))
         # return nsga_res, nsga_solution, elapsed_time
         return nsga2_res, nsga_solution
 class rnsga2(object):
@@ -233,7 +237,7 @@ class rnsga2(object):
             for i in range(len(solution)):
                 res += self.df_true_accuracy.iloc[i, solution[i]]
             parsed_num_list.append(res)
-            true_accuracy.append(res / len(pareto_solutions[0]))
+            true_accuracy.append(res /len(solution))
         return true_accuracy
 
     def run(self):
@@ -251,7 +255,7 @@ class rnsga2(object):
         algorithm = RNSGA2(
             ref_points=ref_points,
             pop_size=100,
-            epsilon=0.1043,
+            epsilon=0.9964,
             normalization='front',
             extreme_points_as_reference_points=True,
             weights=np.array([0.5, 0.5]))
@@ -273,5 +277,6 @@ class rnsga2(object):
         r_nsga2_res['time'] = elapsed_time
         r_nsga2_res['true_accuracy'] = self.get_true_accuracy_obj_(rnsga2_solutions_int)
         print("R-NSGA-2 finished and the searchiing time is: ", elapsed_time)
+        print("R-NSGA-2 num:", len(r_nsga2_res))
 
         return r_nsga2_res, rnsga2_solutions_int
