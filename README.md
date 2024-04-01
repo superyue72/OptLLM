@@ -10,7 +10,7 @@ OptLLM, an efficient framework for selecting the most suitable LLM API for a giv
 The prediction component employs multi-label classification to predict the possibility of candidate LLMs processing each query successfully. To handle prediction uncertainty, OptLLM uses a weighted mean to aggregate bootstrap sample predictions and calculate the standard deviation across samples to quantify the uncertainty. The optimization component initializes with two extreme solutions: one with the highest predicted accuracy and another with the lowest cost. OptLLM then iteratively generates non-dominated solutions through a destruction and reconstruction process. 
 
 ## 2. Benchmarks
-### 2.1 Natural Language Processing (NLP) jobs
+### 2.1 Natural Language Processing (NLP) tasks
 To show the generality of OptLLM on different types of jobs, we have chosen four general natural language processing tasks, including text classification(AGNEWS^[1]), question answering (COQA^[2]), sentiment analysis (HEADLINES^[3]),  and reasoning(SCIQ^[4]). 12 candidate LLMs are selected from 4 mainstream providers: OpenAI (GPT-Curie, ChatGPT, GPT-3, and GPT-4), AI21 (J1-Large, J1-Grande, and J1-Jumbo), Anthropic (Xlarge and Medium), and EleutherAI (GPT-J, FAIRSEQ, and GPT-Neox). The raw data is provided by Chen et al.^[5], which contains the inputs (prompts) sent to the LLMs, ground truth references, LLM outputs, and cost. 
 
 ### 2.2 Domain-specific tasks
