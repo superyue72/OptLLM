@@ -9,7 +9,7 @@ class PygmoAllocationProblem:
         self.df_cost = df_cost
         self.model_list = model_list
         self.n_var = len(self.df_true_accuracy)
-        self.m_max = len(self.df_true_accuracy.iloc[0])
+        self.m_max = len(self.df_true_accuracy.iloc[0]) - 1
 
     # Define objectives
     def fitness(self, x):
@@ -60,7 +60,7 @@ class MOPSO(object):
             for i in range(len(solution)):
                 res += self.df_true_accuracy.iloc[i, solution[i]]
             parsed_num_list.append(res)
-            true_accuracy.append(res / len(pareto_solutions[0]))
+            true_accuracy.append(res /len(solution))
         return true_accuracy
 
     def run(self):
@@ -68,7 +68,7 @@ class MOPSO(object):
         prob = pg.problem(
             PygmoAllocationProblem(self.df_pre_accuracy, self.df_true_accuracy, self.df_cost, self.model_list))
         pop = pg.population(prob, size=100)
-        algo = pg.algorithm(pg.nspso(gen=self.termination, omega=0.9375, c1=0.7631, c2=0.6387, v_coeff=0.1550))
+        algo = pg.algorithm(pg.nspso(gen=self.termination, omega=0.7887, c1=0.7496, c2=0.1537, v_coeff=0.9518))
         print("Start MOPSO searching!")
         pop = algo.evolve(pop=pop)
         elapsed_time = time.time() - start_time
@@ -104,16 +104,15 @@ class MOEAD(object):
                 for i in range(len(solution)):
                     res += self.df_true_accuracy.iloc[i, solution[i]]
                 parsed_num_list.append(res)
-                true_accuracy.append(res / len(pareto_solutions[0]))
+                true_accuracy.append(res /len(solution))
             return true_accuracy
 
     def run(self):
         start_time = time.time()
-        levels_token = get_level_tokens_num_()
         prob = pg.problem(
             PygmoAllocationProblem(self.df_pre_accuracy, self.df_true_accuracy, self.df_cost, self.model_list))
         pop = pg.population(prob, size=100)
-        algo = pg.algorithm(pg.moead(gen=self.termination, weight_generation='grid', decomposition='weighted', neighbours=29))
+        algo = pg.algorithm(pg.moead(gen=self.termination, weight_generation='grid', decomposition='bi', neighbours=10))
         print("Start MOEAD searching!")
         pop = algo.evolve(pop=pop)
         elapsed_time = time.time() - start_time
@@ -149,16 +148,15 @@ class MOEADGEN(object):
                 for i in range(len(solution)):
                     res += self.df_true_accuracy.iloc[i, solution[i]]
                 parsed_num_list.append(res)
-                true_accuracy.append(res / len(pareto_solutions[0]))
+                true_accuracy.append(res /len(solution))
             return true_accuracy
     def run(self):
         start_time = time.time()
-        levels_token = get_level_tokens_num_()
         prob = pg.problem(
             PygmoAllocationProblem(self.df_pre_accuracy, self.df_true_accuracy, self.df_cost, self.model_list))
         pop = pg.population(prob, size=100)
-        algo = pg.algorithm(pg.moead_gen(gen=self.termination, weight_generation='random', decomposition='weighted',
-                                         neighbours=11))
+        algo = pg.algorithm(pg.moead_gen(gen=self.termination, weight_generation='random', decomposition='tchebycheff',
+                                         neighbours=24))
         print("Start MOEADGEN searching!")
         pop = algo.evolve(pop=pop)
         elapsed_time = time.time() - start_time
