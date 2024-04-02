@@ -15,11 +15,9 @@ def robust_prediction(train_x, train_y, val_x, val_y, test_x):
     val_y = np.array(val_y)
     n_outputs = train_y.shape[1]
     bootstrap_preds = np.zeros((len(test_x), n_outputs, n_bootstraps))
-    best_estimator = None
-    best_val_score = -np.inf
+    bootstrap_val_scores = np.zeros(n_bootstraps)
 
     for i in range(n_bootstraps):
-        # Resample the training data with replacement
         train_x_boot, train_y_boot = resample(train_x, train_y)
 
         base_estimator = MultiOutputClassifier(
@@ -38,23 +36,22 @@ def robust_prediction(train_x, train_y, val_x, val_y, test_x):
                 val_preds_array.append(pred.ravel())
         val_preds_array = np.stack(val_preds_array, axis=1)
 
-        # val_preds_array = np.stack(val_preds, axis=1)[:, :, 1]
-        val_score = np.mean(val_preds_array == val_y)
-
-        # Update the best estimator if the validation score improves
-        if val_score > best_val_score:
-            best_estimator = base_estimator
-            best_val_score = val_score
+        # Calculate the percentage of correctly predicted data on the validation set
+        val_score = np.mean(val_preds_array.round() == val_y)
+        bootstrap_val_scores[i] = val_score
 
         # Predict on the test set and store the predictions
         preds_list = base_estimator.predict_proba(test_x)
         preds_array = np.stack(preds_list, axis=1)[:, :, 1]
         bootstrap_preds[:, :, i] = preds_array
 
-    robust_values = np.mean(bootstrap_preds, axis=2)  # Mean predictions
-    uncertainty = np.std(bootstrap_preds, axis=2)  # Standard deviation
+    # Calculate the weighted mean prediction
+    weights = bootstrap_val_scores / np.sum(bootstrap_val_scores)
+    weighted_mean_preds = np.average(bootstrap_preds, axis=2, weights=weights)
 
-    return robust_values, uncertainty
+    # Calculate the uncertainty (standard deviation)
+    uncertainty = np.std(bootstrap_preds, axis=2)
+    return weighted_mean_preds, uncertainty
 def split_data(data):
     data_x = [x['features'] for x in data]
     data_y = [list(y['label'].values()) for y in data]

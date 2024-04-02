@@ -1,0 +1,108 @@
+--------------------------Start MOEAD optimization--------------------------
+A new study created in memory with name: algs_para_setting
+Trial 2 finished with value: 1.0111557078423892 and parameters: {'weight_generation': 'grid', 'decomposition': 'weighted', 'neighbours': 15}. Best is trial 2 with value: 1.0111557078423892.
+Trial 2 finished with best value: 1.0111557078423892 and parameters: {'weight_generation': 'grid', 'decomposition': 'weighted', 'neighbours': 15}. 
+Trial 1 finished with value: 1.8207745309005532 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 29}. Best is trial 2 with value: 1.0111557078423892.
+Trial 10 finished with value: 1.5929289488683829 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'bi', 'neighbours': 23}. Best is trial 2 with value: 1.0111557078423892.
+Trial 3 finished with value: 1.7726220887978112 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 25}. Best is trial 2 with value: 1.0111557078423892.
+Trial 9 finished with value: 2.363776746236767 and parameters: {'weight_generation': 'grid', 'decomposition': 'weighted', 'neighbours': 26}. Best is trial 2 with value: 1.0111557078423892.
+Trial 12 finished with value: 2.1637910575122876 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'weighted', 'neighbours': 10}. Best is trial 2 with value: 1.0111557078423892.
+Trial 11 finished with value: 1.2634338478572378 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 21}. Best is trial 2 with value: 1.0111557078423892.
+Trial 4 finished with value: 2.3798772768289918 and parameters: {'weight_generation': 'grid', 'decomposition': 'tchebycheff', 'neighbours': 21}. Best is trial 2 with value: 1.0111557078423892.
+Trial 7 finished with value: 1.7154094630110441 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 10}. Best is trial 2 with value: 1.0111557078423892.
+Trial 8 finished with value: 1.7675298123376149 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 17}. Best is trial 2 with value: 1.0111557078423892.
+Trial 0 finished with value: 0.9733455505832918 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 29}. Best is trial 0 with value: 0.9733455505832918.
+Trial 0 finished with best value: 0.9733455505832918 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 29}. 
+Trial 15 finished with value: 1.3373219710793962 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 15}. Best is trial 0 with value: 0.9733455505832918.
+Trial 5 finished with value: 1.1489240282768618 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 13}. Best is trial 0 with value: 0.9733455505832918.
+Trial 13 finished with value: 1.329181166226238 and parameters: {'weight_generation': 'grid', 'decomposition': 'weighted', 'neighbours': 12}. Best is trial 0 with value: 0.9733455505832918.
+Trial 6 finished with value: 2.4831292915309784 and parameters: {'weight_generation': 'random', 'decomposition': 'tchebycheff', 'neighbours': 30}. Best is trial 0 with value: 0.9733455505832918.
+Trial 14 finished with value: 1.2962106759252203 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 24}. Best is trial 0 with value: 0.9733455505832918.
+Trial 16 finished with value: 2.3700247071122478 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 23}. Best is trial 0 with value: 0.9733455505832918.
+Trial 18 finished with value: 1.1520227637804552 and parameters: {'weight_generation': 'grid', 'decomposition': 'weighted', 'neighbours': 26}. Best is trial 0 with value: 0.9733455505832918.
+Trial 19 finished with value: 1.6354208683970337 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 24}. Best is trial 0 with value: 0.9733455505832918.
+Trial 22 finished with value: 0.5418694070168476 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'weighted', 'neighbours': 21}. Best is trial 22 with value: 0.5418694070168476.
+Trial 22 finished with best value: 0.5418694070168476 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'weighted', 'neighbours': 21}. 
+Trial 17 finished with value: 1.897478783746236 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'bi', 'neighbours': 14}. Best is trial 22 with value: 0.5418694070168476.
+Trial 21 finished with value: 0.7495637180183787 and parameters: {'weight_generation': 'grid', 'decomposition': 'tchebycheff', 'neighbours': 11}. Best is trial 22 with value: 0.5418694070168476.
+Trial 23 finished with value: 0.855268880301601 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'weighted', 'neighbours': 10}. Best is trial 22 with value: 0.5418694070168476.
+Trial 20 finished with value: 1.3328618333108224 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 20}. Best is trial 22 with value: 0.5418694070168476.
+Trial 28 finished with value: 1.4996471059919825 and parameters: {'weight_generation': 'random', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 24 finished with value: 1.3015975973084464 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 20}. Best is trial 22 with value: 0.5418694070168476.
+Trial 29 finished with value: 0.684018518719926 and parameters: {'weight_generation': 'random', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 30 finished with value: 1.7101480468589598 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'weighted', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 25 finished with value: 2.049143001448263 and parameters: {'weight_generation': 'grid', 'decomposition': 'tchebycheff', 'neighbours': 16}. Best is trial 22 with value: 0.5418694070168476.
+Trial 31 finished with value: 1.7430861734242575 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 19}. Best is trial 22 with value: 0.5418694070168476.
+Trial 26 finished with value: 1.6754780189422702 and parameters: {'weight_generation': 'grid', 'decomposition': 'tchebycheff', 'neighbours': 15}. Best is trial 22 with value: 0.5418694070168476.
+Trial 27 finished with value: 1.3718232042529925 and parameters: {'weight_generation': 'random', 'decomposition': 'tchebycheff', 'neighbours': 16}. Best is trial 22 with value: 0.5418694070168476.
+Trial 32 finished with value: 2.137733620700464 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 17}. Best is trial 22 with value: 0.5418694070168476.
+Trial 33 finished with value: 1.0758857872531171 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 36 finished with value: 2.3290960322767384 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'weighted', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 39 finished with value: 1.8518364997336585 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 37 finished with value: 1.2188447180350908 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 38 finished with value: 1.9609254372000735 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 34 finished with value: 0.9973342602902395 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 17}. Best is trial 22 with value: 0.5418694070168476.
+Trial 35 finished with value: 1.9080416185673552 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 40 finished with value: 0.6559106732638271 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 17}. Best is trial 22 with value: 0.5418694070168476.
+Trial 41 finished with value: 1.7052405236117323 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 42 finished with value: 2.0775745353693913 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 18}. Best is trial 22 with value: 0.5418694070168476.
+Trial 43 finished with value: 1.4150475276438181 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 16}. Best is trial 22 with value: 0.5418694070168476.
+Trial 44 finished with value: 1.837114362284249 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 45 finished with value: 2.0340760543684175 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 13}. Best is trial 22 with value: 0.5418694070168476.
+Trial 46 finished with value: 1.2673517768590252 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 47 finished with value: 1.517202634448364 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 48 finished with value: 2.4667676373414356 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 49 finished with value: 1.32669977733865 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 50 finished with value: 2.0871107582440684 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 51 finished with value: 1.5017899301779418 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 53 finished with value: 1.3141873682128136 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 54 finished with value: 1.1387752801630235 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 11}. Best is trial 22 with value: 0.5418694070168476.
+Trial 52 finished with value: 1.219689456242685 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 55 finished with value: 2.1304793930827666 and parameters: {'weight_generation': 'grid', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 57 finished with value: 1.3747391808355656 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 11}. Best is trial 22 with value: 0.5418694070168476.
+Trial 60 finished with value: 1.3558531949659594 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 11}. Best is trial 22 with value: 0.5418694070168476.
+Trial 62 finished with value: 2.436683126368713 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 10}. Best is trial 22 with value: 0.5418694070168476.
+Trial 56 finished with value: 1.5266386582448408 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 22 with value: 0.5418694070168476.
+Trial 63 finished with value: 0.5048425673347218 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 10}. Best is trial 63 with value: 0.5048425673347218.
+Trial 63 finished with best value: 0.5048425673347218 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 10}. 
+Trial 58 finished with value: 1.7543348036442692 and parameters: {'weight_generation': 'low discrepancy', 'decomposition': 'tchebycheff', 'neighbours': 12}. Best is trial 63 with value: 0.5048425673347218.
+Trial 64 finished with value: 2.265175332378716 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 10}. Best is trial 63 with value: 0.5048425673347218.
+Trial 59 finished with value: 1.3333831298361423 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 12}. Best is trial 63 with value: 0.5048425673347218.
+Trial 65 finished with value: 2.2043045368489254 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 22}. Best is trial 63 with value: 0.5048425673347218.
+Trial 61 finished with value: 1.868294423155263 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 10}. Best is trial 63 with value: 0.5048425673347218.
+Trial 66 finished with value: 1.2699834856147596 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 28}. Best is trial 63 with value: 0.5048425673347218.
+Trial 67 finished with value: 1.4013822579147084 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 29}. Best is trial 63 with value: 0.5048425673347218.
+Trial 69 finished with value: 1.990380070698586 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 28}. Best is trial 63 with value: 0.5048425673347218.
+Trial 68 finished with value: 0.7069499131367296 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 29}. Best is trial 63 with value: 0.5048425673347218.
+Trial 70 finished with value: 1.5587790086962805 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 27}. Best is trial 63 with value: 0.5048425673347218.
+Trial 71 finished with value: 1.8982927492277737 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 29}. Best is trial 63 with value: 0.5048425673347218.
+Trial 72 finished with value: 1.5717313401168305 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 28}. Best is trial 63 with value: 0.5048425673347218.
+Trial 73 finished with value: 1.70884352613405 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 29}. Best is trial 63 with value: 0.5048425673347218.
+Trial 76 finished with value: 2.3756067489864807 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 14}. Best is trial 63 with value: 0.5048425673347218.
+Trial 74 finished with value: 1.3709954143973004 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 28}. Best is trial 63 with value: 0.5048425673347218.
+Trial 75 finished with value: 1.2927599238678615 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 28}. Best is trial 63 with value: 0.5048425673347218.
+Trial 78 finished with value: 1.9686631738235985 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 22}. Best is trial 63 with value: 0.5048425673347218.
+Trial 80 finished with value: 1.1667764051626262 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 30}. Best is trial 63 with value: 0.5048425673347218.
+Trial 77 finished with value: 1.367350540196725 and parameters: {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 28}. Best is trial 63 with value: 0.5048425673347218.
+Trial 82 finished with value: 2.1149256709428075 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 21}. Best is trial 63 with value: 0.5048425673347218.
+Trial 83 finished with value: 1.8109653165288948 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 14}. Best is trial 63 with value: 0.5048425673347218.
+Trial 79 finished with value: 1.8743423427479942 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 22}. Best is trial 63 with value: 0.5048425673347218.
+Trial 81 finished with value: 0.8082629248103358 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 28}. Best is trial 63 with value: 0.5048425673347218.
+Trial 84 finished with value: 1.6282218678694014 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 21}. Best is trial 63 with value: 0.5048425673347218.
+Trial 88 finished with value: 2.0613223334456805 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 30}. Best is trial 63 with value: 0.5048425673347218.
+Trial 85 finished with value: 1.105248213386683 and parameters: {'weight_generation': 'grid', 'decomposition': 'weighted', 'neighbours': 21}. Best is trial 63 with value: 0.5048425673347218.
+Trial 86 finished with value: 1.2408019868072606 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 30}. Best is trial 63 with value: 0.5048425673347218.
+Trial 87 finished with value: 0.5774028510730885 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 21}. Best is trial 63 with value: 0.5048425673347218.
+Trial 89 finished with value: 1.2754911446934314 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 25}. Best is trial 63 with value: 0.5048425673347218.
+Trial 93 finished with value: 1.1164892226911374 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 25}. Best is trial 63 with value: 0.5048425673347218.
+Trial 94 finished with value: 1.344786478807536 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 25}. Best is trial 63 with value: 0.5048425673347218.
+Trial 90 finished with value: 1.7021994170137353 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 30}. Best is trial 63 with value: 0.5048425673347218.
+Trial 91 finished with value: 2.066864243330027 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 30}. Best is trial 63 with value: 0.5048425673347218.
+Trial 96 finished with value: 1.872337166013708 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 19}. Best is trial 63 with value: 0.5048425673347218.
+Trial 97 finished with value: 1.1303603821369805 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 17}. Best is trial 63 with value: 0.5048425673347218.
+Trial 92 finished with value: 1.674396175556512 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 19}. Best is trial 63 with value: 0.5048425673347218.
+Trial 95 finished with value: 1.5881245934602828 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 25}. Best is trial 63 with value: 0.5048425673347218.
+Trial 98 finished with value: 1.332384241764583 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 19}. Best is trial 63 with value: 0.5048425673347218.
+Trial 99 finished with value: 1.8322253618137387 and parameters: {'weight_generation': 'random', 'decomposition': 'weighted', 'neighbours': 30}. Best is trial 63 with value: 0.5048425673347218.
+best params:  {'weight_generation': 'grid', 'decomposition': 'bi', 'neighbours': 10} best value:  0.5048425673347218
+--------------------------Finish MOEAD optimization--------------------------

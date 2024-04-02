@@ -1,83 +1,78 @@
-#iterative greedy search for LLMs jobs allocation problem
-import ast
-import sys
+import numpy as np
 import pandas as pd
-from tqdm import tqdm
-from igs.igs import iterative_greedy_search_
-from prediction.prediction_model import *
-from igs.get_true_pf import *
-from igs.get_expected_pf import *
+import torch
+import os
+import pickle
+import string
+from igs.OptLLM_robust import *
+from utilities.evl import *
+from sklearn.metrics import classification_report, accuracy_score
+from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
+from sklearn.multiclass import OneVsRestClassifier
+from xgboost import XGBClassifier
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.utils import resample
+from sklearn.metrics import make_scorer, mean_absolute_error
 from utilities.utils_model import *
-from baselines.random_allocation import *
+from sklearn.ensemble import RandomForestClassifier
+import lightgbm as lgb
+from sklearn.neural_network import MLPClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from igs.get_true_pf import *
+import sys
 from baselines.pymoo_lib import *
-
-
-
+from baselines.pygmo_lib import *
+from prediction.bootstrap_pred import *
 
 if __name__ == '__main__':
-    itr = sys.argv[1]
-    dataset = "text_classification" #, "log_parsing, text_classification"]
-    # datasets = ['overruling', 'agnews', 'coqa', 'headlines', 'sciq']
-
     test_data_size = 0.98
-    data_name = f"datasets/{dataset}_word2vec.pkl"
-    # data_name = f"datasets/{dataset}/overruling_query_word2vec.pkl"
+    datasets = ['agnews', 'coqa', 'headlines', 'sciq', 'log_parsing']
 
-    save_dir = f"output/{dataset}_{test_data_size}_{itr}"
-    if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
+    for dataset in datasets:
+        if dataset == "log_parsing":
+            model_list = ["j2_mid", "j2_ultra", "Mixtral_8x7B", "llama2_7b", "llama2_13b", "llama2_70b", "Yi_34B",
+                          "Yi_6B"]
+            data_name = f"../datasets/{dataset}_word2vec.pkl"
 
-    if dataset == "text_classification":
-        model_list = ['gptneox_20B', 'gptj_6B', 'fairseq_gpt_13B', 'text-davinci-002', 'text-curie-001', 'gpt-3.5-turbo',
-                      'gpt-4', 'j1-jumbo', 'j1-grande', 'j1-large', 'xlarge', 'medium']
-    elif dataset == "log_parsing":
-        model_list = ["j2_mid", "j2_ultra", "Mixtral_8x7B", "llama2_7b", "llama2_13b", "llama2_70b", "Yi_34B", "Yi_6B"]
+        else:
+            model_list = ['gptneox_20B', 'gptj_6B', 'fairseq_gpt_13B', 'text-davinci-002', 'text-curie-001',
+                          'gpt-3.5-turbo',
+                          'gpt-4', 'j1-jumbo', 'j1-grande', 'j1-large', 'xlarge', 'medium']
+            data_name = f"../datasets/text_classification/{dataset}_query_word2vec.pkl"
 
+        for itr in range(1, 11):
+            save_dir = f"new_res/{dataset}/{itr}"
+            if not os.path.exists(save_dir):
+                os.makedirs(save_dir)
 
-    df_pre_accuracy, df_true_accuracy, df_cost, df_llm_scores, df_llm_ability = data_preprocess(data_name, model_list, itr, test_size=test_data_size)
-    # df_score_table = get_score_table_(df_pre_accuracy, df_llm_scores, df_llm_ability, model_list)
-    # df_pre_accuracy, df_true_accuracy, df_cost = log_preprocess(data_dir, model_list, test_size=test_data_size)
+            df_pre_accuracy, df_robust_accuracy, df_true_accuracy, df_llm_scores, df_llm_ability, df_cost, acc_table = get_predict_accuracy_(data_name, model_list, itr, alpha=1,
+                                                                                                        test_size=test_data_size)
+            acc_table = pd.Series(acc_table, name='acc')
+            acc_table.to_csv(f"{save_dir}/acc_table.csv")
 
-    print(f"Processing {dataset} dataset, including", len(df_pre_accuracy), "jobs")
+        print(f"Processing {dataset} dataset, including", len(df_pre_accuracy), "jobs")
 
-    smsemoa_res, smsemoa_solutions = sms_emoa(df_pre_accuracy, df_true_accuracy, df_cost, model_list, termination="100").run()
-    smsemoa_res.to_csv(f"{save_dir}/{dataset}_smsemoa_res.csv")
-    nsga2_res, nsga2_solutions = nsga2(df_pre_accuracy, df_true_accuracy, df_cost, model_list, termination="100").run()
-    nsga2_res.to_csv(f"{save_dir}/{dataset}_nsga2_res.csv")
-    rnsga2_res, rnsga2_solutions = rnsga2(df_pre_accuracy, df_true_accuracy, df_cost, model_list, termination="100").run()
-    rnsga2_res.to_csv(f"{save_dir}/{dataset}_rnsga2_res.csv")
+        OptLLM_res, OptLLM_solution = OptLLM(df_robust_accuracy, df_pre_accuracy, df_true_accuracy, df_cost, model_list).run()
+        OptLLM_res.to_csv(f"{save_dir}/OptLLM_res.csv")
 
-    # single_model_res = {}
-    # for i in range(len(model_list)):
-    #     single_model_res[model_list[i]] = get_single_model_results_(model_list[i], df_true_accuracy, df_cost)
+        smsemoa_res, smsemoa_solutions = sms_emoa(df_robust_accuracy, df_true_accuracy, df_cost, model_list, termination=100).run()
+        smsemoa_res.to_csv(f"{save_dir}/smsemoa_res.csv")
 
-    # if os.path.exists(f"{save_dir}/{dataset}_igs_res.csv"):
-    #     igs_res = pd.read_csv(f"{save_dir}/{dataset}_igs_res.csv")
-    # else:
-    #     igs_res, igs_solution = iterative_greedy_search_(df_pre_accuracy, df_true_accuracy, df_cost, model_list).run()
-    #     igs_res.to_csv(f"{save_dir}/{dataset}_igs_res.csv")
-    #
-    # if os.path.exists(f"{save_dir}/{dataset}_igs2_res.csv"):
-    #     igs_res2 = pd.read_csv(f"{save_dir}/{dataset}_igs2_res.csv")
-    # else:
-    #     igs_res2, igs_solution2 = iterative_greedy_search_(df_score_table, df_true_accuracy, df_cost, model_list).run()
-    #     igs_res2.to_csv(f"{save_dir}/{dataset}_igs2_res.csv")
+        nsga2_res, nsga2_solutions = nsga2(df_robust_accuracy, df_true_accuracy, df_cost, model_list, termination=100).run()
+        nsga2_res.to_csv(f"{save_dir}/nsga2_res.csv")
 
+        rnsga2_res, rnsga2_solutions = rnsga2(df_robust_accuracy, df_true_accuracy, df_cost, model_list, termination=100).run()
+        rnsga2_res.to_csv(f"{save_dir}/rnsga2_res.csv")
 
-    if os.path.exists(f"{save_dir}/{dataset}_true_pt.csv"):
-        true_pt = pd.read_csv(f"{save_dir}/{dataset}_true_pt.csv")
-    else:
+        mopso_res, mopso_solutions = MOPSO(df_robust_accuracy, df_true_accuracy, df_cost, model_list, termination=100).run()
+        mopso_res.to_csv(f"{save_dir}/mopso_res.csv")
+        moead_res, moead_solutions = MOEAD(df_robust_accuracy, df_true_accuracy, df_cost, model_list,
+                                           termination=100).run()
+        moead_res.to_csv(f"{save_dir}/moead_res.csv")
+        moeadgen_res, moeadgen_solutions = MOEADGEN(df_robust_accuracy, df_true_accuracy, df_cost, model_list, termination=100).run()
+        moeadgen_res.to_csv(f"{save_dir}/moeadgen_res.csv")
+
         true_pt, true_pt_solution = get_true_pareto_front(df_true_accuracy, df_cost, model_list).run()
-        true_pt.to_csv(f"{save_dir}/{dataset}_true_pt.csv")
-        true_pt_solution = pd.DataFrame(true_pt_solution)
-        true_pt_solution.to_csv(f"{save_dir}/{dataset}_true_pt_solution.csv")
-    #
-    # # if os.path.exists(f"{save_dir}/{dataset}_expected_pt.csv"):
-    # #     expected_pt = pd.read_csv(f"{save_dir}/{dataset}_expected_pt.csv")
-    # # else:
-    # #     expected_pt, expected_pt_solution = get_expected_pareto_front(df_pre_accuracy, df_true_accuracy, df_cost, model_list).run()
-    # #     expected_pt.to_csv(f"{save_dir}/{dataset}_expected_pt.csv")
-    # #     expected_pt_solution = pd.DataFrame(expected_pt_solution)
-    # #     expected_pt_solution.to_csv(f"{save_dir}/{dataset}_expected_pt_solution.csv")
-
-
+        true_pt.to_csv(f"{save_dir}/true_pt.csv")
