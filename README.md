@@ -55,6 +55,7 @@ Friedman Test: The Friedman test is a non-parametric statistical test that ranks
 
 Nemenyi Test: The Nemenyi test is a post-hoc test that is performed after the Friedman test if the null hypothesis is rejected. It is used to determine which specific pairs of algorithms have significant differences in their performance.
 #### 4.2.1 RQ1: Comparison with the baselines
+##### 4.2.1.1 Results
 <p align="center"><img src="images/individual_comparison.png" width="500"><br>Cost savings by OptLLM compared with the individual LLM</p>
 
 <p align="center"><img src="images/baselines_comparison.png" width="800"><br>The solution with the highest accuracy by all algorithms</p>
@@ -63,6 +64,25 @@ Nemenyi Test: The Nemenyi test is a post-hoc test that is performed after the Fr
 
 <p align="center"><img src="images/baselines_comparison3.png" width="800"><br>Comparisons of solution sets from all algorithms in terms of IGD, $\Delta$, and Time</p>
 
+##### 4.2.1.2 Stastical Test
+
+The Friedman test is a non-parametric statistical test used to compare multiple paired samples. The test is based on ranking the data within each block (i.e., each sample) and comparing the average ranks between the different groups. The following table shows the p-values of the Friedman test for the five datasets on IGD and $\Delta$ metrics.
+
+
+Friedman test results for IGD metric:
+
+| Dataset    | AGNEWS   | COQA | HEADLINES | SCIQ     | LogPai   |
+|------------|----------|--------|-----------|----------|----------|
+| P-value    | 2.42e-10 |6.95e-10 | 4.31e-9   | 1.59e-10 | 6.20e-11 |
+
+
+Friedman test results for $\Delta$ metric:
+
+| Dataset    | AGNEWS  | COQA | HEADLINES | SCIQ    | LogPai  |
+|------------|---------|--------|-----------|---------|---------|
+| P-value    | 4.68e-8 |3.67e-10| 4.50e-7   | 5.81e-9 | 2.55e-6 |
+
+Overall, the Friedman test results for all five datasets show extremely small p-values, indicating strong evidence against the null hypothesis. This suggests that there are significant differences between the groups being compared for each dataset. The results provide compelling evidence to reject the null hypothesis and accept the alternative hypothesis that at least one group differs from the others.
 
 #### 4.2.2 RQ2: Effect of Core Techniques
 <p align="center"><img src="images/ablation_study.png" width="800"><br>Ablation study of OptLLM</p>
