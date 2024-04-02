@@ -9,7 +9,7 @@ def get_score_table_(df_pre_accuracy, df_llm_scores, df_llm_ability, model_list)
     for i in range(len(df_pre_accuracy)):
         accuracy = []
         for model_name in model_list:
-            accuracy.append(df_pre_accuracy.iloc[i][model_name] * df_llm_scores.loc[model_name]["F1-Score"] * df_llm_ability.loc[model_name]["score"])
+            accuracy.append(df_pre_accuracy.iloc[i][model_name] * df_llm_ability.loc[model_name]["score"]) #* df_llm_scores.loc[model_name]["F1-Score"]
         score_table.append(accuracy)
 
     score_table_df = pd.DataFrame(score_table, columns=model_list)

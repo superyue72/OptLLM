@@ -78,12 +78,12 @@ class get_expected_pareto_front(object):
     def get_true_accuracy_obj_(self, pareto_solutions):
         parsed_num_list = []
         true_accuracy = []
-        for solution in tqdm(np.array(pareto_solutions)):
+        for solution in np.array(pareto_solutions):
             res = 0
             for i in range(len(solution)):
                 res += self.df_true_accuracy.iloc[i, solution[i]]
             parsed_num_list.append(res)
-            true_accuracy.append(res / len(pareto_solutions[0]))
+            true_accuracy.append(res / len(solution))
         return true_accuracy
 
     def run(self):

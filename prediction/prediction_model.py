@@ -59,8 +59,8 @@ def get_predict_accuracy_and_score_(model_list, train_data, val_data, test_data)
     print(classification_report(test_y, y_pred, digits=3, target_names=model_list))
     print(accuracy_score(test_y, y_pred))
     complexity = [[y_score[j][i][1] for j in range(len(model_list))] for i in range(len(y_score[0]))]
-    df_pre_accuracy = pd.DataFrame(complexity, columns=model_list)
-    # df_pre_accuracy = pd.DataFrame(y_pred, columns=model_list)
+    # df_pre_accuracy = pd.DataFrame(complexity, columns=model_list)
+    df_pre_accuracy = pd.DataFrame(y_pred, columns=model_list)
     df_true_accuracy = pd.DataFrame(test_y, columns=model_list)
     return df_pre_accuracy, df_true_accuracy, df_llm_scores
 
@@ -69,8 +69,6 @@ def data_preprocess(data_dir, model_list, itr, test_size=0.98):
     print(test_size)
     with open(data_dir, mode="rb") as f:
         X, Y, cost = pickle.load(f)
-    # with open(f"{data_dir}/{dataset}_query_word2vec.pkl", mode="rb") as f:
-    #     X, Y, cost = pickle.load(f)
 
     data_dict = {}
     for i in range(len(X)):
@@ -80,8 +78,11 @@ def data_preprocess(data_dir, model_list, itr, test_size=0.98):
         infor_dict['cost'] = cost[i]
         data_dict[i] = infor_dict
 
-    train_data, test_data = train_test_split(data_dict, test_size=test_size, random_state=itr)
-    train_data, val_data = train_test_split(train_data, test_size=0.5, random_state=itr)
+    train_data, test_data = train_test_split(data_dict, test_size=test_size, random_state=int(itr*2+5))
+
+    train_data, val_data = train_test_split(train_data, test_size=0.5, random_state=int(itr*3+1))
+    # train_data, test_data = train_test_split(data_dict, test_size=test_size, random_state=itr)
+    # train_data, val_data = train_test_split(train_data, test_size=0.5, random_state=itr)
 
     print("There are", len(train_data), "train data and ", len(val_data), "val data and ", len(test_data), "test data")
 
