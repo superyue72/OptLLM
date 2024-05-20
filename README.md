@@ -11,17 +11,17 @@ The prediction component employs multi-label classification to predict the possi
 
 ## 2. Benchmarks
 ### 2.1 Natural Language Processing (NLP) jobs
-To show the generality of OptLLM on different types of jobs, we have chosen four general natural language processing tasks, including text classification(AGNEWS^[1]), question answering (COQA^[2]), sentiment analysis (HEADLINES^[3]),  and reasoning(SCIQ^[4]). 12 candidate LLMs are selected from 4 mainstream providers: OpenAI (GPT-Curie, ChatGPT, GPT-3, and GPT-4), AI21 (J1-Large, J1-Grande, and J1-Jumbo), Anthropic (Xlarge and Medium), and EleutherAI (GPT-J, FAIRSEQ, and GPT-Neox). The raw data is provided by Chen et al.^[5], which contains the inputs (prompts) sent to the LLMs, ground truth references, LLM outputs, and cost. 
+To show the generality of OptLLM on different types of jobs, we have chosen four general natural language processing tasks, including text classification(AGNEWS[1]), question answering (COQA[2]), sentiment analysis (HEADLINES[3]),  and reasoning(SCIQ[4]). 12 candidate LLMs are selected from 4 mainstream providers: OpenAI (GPT-Curie, ChatGPT, GPT-3, and GPT-4), AI21 (J1-Large, J1-Grande, and J1-Jumbo), Anthropic (Xlarge and Medium), and EleutherAI (GPT-J, FAIRSEQ, and GPT-Neox). The raw data is provided by Chen et al.[5], which contains the inputs (prompts) sent to the LLMs, ground truth references, LLM outputs, and cost. 
 
 ### 2.2 Domain-specific tasks
-Furthermore, we have chosen an intelligent software engineering (SE) task, specifically focusing on LLM-based log parsing. We utilize log data sourced from the LogPai benchmark^[6,7] to interface with 8 LLM APIs, including TogertherAI (llama2_7b, llama2_13b, llama2_70b, Mixtral_8x7B, Yi_34B, and Yi_6B), AI21(J2-Mid and J2-Ultra).} The LogPai benchmark consists of log data from 16 systems, including distributed systems, supercomputers, operating systems, mobile systems, server applications, and standalone software. The raw data includes inputs (queries and full prompts) sent to the LLMs, ground truth references, LLM outputs, and the corresponding execution costs. The details of datasets are listed in Table.
+Furthermore, we have chosen an intelligent software engineering (SE) task, specifically focusing on LLM-based log parsing. We utilize log data sourced from the LogPai benchmark[6,7] to interface with 8 LLM APIs, including TogertherAI (llama2_7b, llama2_13b, llama2_70b, Mixtral_8x7B, Yi_34B, and Yi_6B), AI21(J2-Mid and J2-Ultra).} The LogPai benchmark consists of log data from 16 systems, including distributed systems, supercomputers, operating systems, mobile systems, server applications, and standalone software. The raw data includes inputs (queries and full prompts) sent to the LLMs, ground truth references, LLM outputs, and the corresponding execution costs. The details of datasets are listed in Table.
 
 ## 3. Baselines and Parameter Setting
 ### 3.1 Baselines
 #### 3.1.1 Individual LLM
 We evaluate the performance of assigning all jobs to a single candidate LLM. We submit the entire set of jobs to each individual LLM and assess the resulting cost and the proportion of jobs that have been successfully completed.
 #### 3.1.2 Multi-objective optimization algorithms
-OptLLM utilizes a heuristic search-based algorithm in optimization. We compare the effectiveness of this algorithm with well-known multi-objective optimization algorithms, including the Non-dominated Sorting Genetic Algorithm (NSGA-\rom{2})^[8], Multi-objective Particle Swarm Optimisation (MOPSO)^[9], and Multi-objective Evolutionary Algorithm with Decomposition (MOEA/D)^[10]. These three algorithms have been extensively studied and have proven to be effective in solving a wide range of multi-objective optimization problems. In addition, three variants of classic algorithms are also compared, including R-NSGA-\rom{2}^[11], SMS-EMOA^[12], and MOEA/D-GEN^[13]. It is important to note that all the evaluated multi-objective optimization algorithms are integrated with the same prediction component as OptLLM, to enable a fair comparison of the optimization strategies. 
+OptLLM utilizes a heuristic search-based algorithm in optimization. We compare the effectiveness of this algorithm with well-known multi-objective optimization algorithms, including the Non-dominated Sorting Genetic Algorithm (NSGA-\rom{2})[8], Multi-objective Particle Swarm Optimisation (MOPSO)[9], and Multi-objective Evolutionary Algorithm with Decomposition (MOEA/D)[10]. These three algorithms have been extensively studied and have proven to be effective in solving a wide range of multi-objective optimization problems. In addition, three variants of classic algorithms are also compared, including R-NSGA-\rom{2}[11], SMS-EMOA[12], and MOEA/D-GEN[13]. It is important to note that all the evaluated multi-objective optimization algorithms are integrated with the same prediction component as OptLLM, to enable a fair comparison of the optimization strategies. 
 ### 3.2 Parameter Setting
 Optuna is a widely used hyperparameter optimization package. To ensure the effectiveness and efficiency of all algorithms, we conduct parameter tuning using Optuna to choose optimal parameter settings. Based on the experiments, the parameters of algorithms are set as follows:
 
@@ -116,7 +116,7 @@ $ python main.py $
 ### 5.3 Source code
 All source code is available under `OptLLM/igs` directory.
 
-We used the standard version of NSGA-II, R-NSGA-II and SMS-EMOA implemented in the Pymoo library^[14], and MOPSO and MOEA/D in the Pygmo. 
+We used the standard version of NSGA-II, R-NSGA-II and SMS-EMOA implemented in the Pymoo library[14], and MOPSO and MOEA/D in the Pygmo. 
 The source code of the baselines is available under `OptLLM/baselines` directory.
 
 | script       | Description                                                               |
@@ -130,18 +130,31 @@ The source code of the baselines is available under `OptLLM/baselines` directory
 
 ## Reference
 
-[^1]: Zhang, Xiang, Junbo Zhao, and Yann LeCun. "Character-level convolutional networks for text classification." Advances in neural information processing systems 28 (2015).
-[^2]: Reddy, Siva, Danqi Chen, and Christopher D. Manning. "Coqa: A conversational question answering challenge." Transactions of the Association for Computational Linguistics 7 (2019): 249-266.
-[^3]: Sinha, Ankur, and Tanmay Khandait. "Impact of news on the commodity market: Dataset and results." Advances in Information and Communication: Proceedings of the 2021 Future of Information and Communication Conference (FICC), Volume 2. Springer International Publishing, 2021.
-[^4]: Welbl, Johannes, Nelson F. Liu, and Matt Gardner. "Crowdsourcing multiple choice science questions." arXiv preprint arXiv:1707.06209 (2017).
-[^5]: Chen, Lingjiao, Matei Zaharia, and James Zou. "Frugalgpt: How to use large language models while reducing cost and improving performance." arXiv preprint arXiv:2305.05176 (2023).
-[^6]: Zhu, Jieming, et al. "Tools and benchmarks for automated log parsing." 2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP). IEEE, 2019.
-[^7]: Khan, Zanis Ali, et al. "Guidelines for assessing the accuracy of log message template identification techniques." Proceedings of the 44th International Conference on Software Engineering. 2022.
-[^8]: Meyarivan, T., Kalyanmoy Deb, Amrit Pratap, and Sameer Agarwal. "A fast and elitist multiobjective genetic algorithm: NSGA-II." IEEE Trans Evol Comput 6, no. 2 (2002): 182-197.
-[^9]: Coello, CA Coello, and Maximino Salazar Lechuga. "MOPSO: A proposal for multiple objective particle swarm optimization." Proceedings of the 2002 Congress on Evolutionary Computation. CEC'02 (Cat. No. 02TH8600). Vol. 2. IEEE, 2002.
-[^10]: Zhang, Qingfu, and Hui Li. "MOEA/D: A multiobjective evolutionary algorithm based on decomposition." IEEE Transactions on evolutionary computation 11.6 (2007): 712-731.
-[^11]: Deb, Kalyanmoy, and Jayavelmurugan Sundar. "Reference point based multi-objective optimization using evolutionary algorithms." Proceedings of the 8th annual conference on Genetic and evolutionary computation. 2006.
-[^12]: Beume, Nicola, Boris Naujoks, and Michael Emmerich. "SMS-EMOA: Multiobjective selection based on dominated hypervolume." European Journal of Operational Research 181.3 (2007): 1653-1669.
-[^13]: Wang, Zhenkun, Yew-Soon Ong, and Hisao Ishibuchi. "On scalable multiobjective test problems with hardly dominated boundaries." IEEE Transactions on Evolutionary Computation 23.2 (2018): 217-231.
-[^14]: J. Blank and K. Deb, “pymoo: Multi-objective optimization in python”, IEEE Access, vol. 8, pp. 89 497–89 509, 2020.
+[1]: Zhang, Xiang, Junbo Zhao, and Yann LeCun. "Character-level convolutional networks for text classification." Advances in neural information processing systems 28 (2015).
+
+[2]: Reddy, Siva, Danqi Chen, and Christopher D. Manning. "Coqa: A conversational question answering challenge." Transactions of the Association for Computational Linguistics 7 (2019): 249-266.
+
+[3]: Sinha, Ankur, and Tanmay Khandait. "Impact of news on the commodity market: Dataset and results." Advances in Information and Communication: Proceedings of the 2021 Future of Information and Communication Conference (FICC), Volume 2. Springer International Publishing, 2021.
+
+[4]: Welbl, Johannes, Nelson F. Liu, and Matt Gardner. "Crowdsourcing multiple choice science questions." arXiv preprint arXiv:1707.06209 (2017).
+
+[5]: Chen, Lingjiao, Matei Zaharia, and James Zou. "Frugalgpt: How to use large language models while reducing cost and improving performance." arXiv preprint arXiv:2305.05176 (2023).
+
+[6]: Zhu, Jieming, et al. "Tools and benchmarks for automated log parsing." 2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP). IEEE, 2019.
+
+[7]: Khan, Zanis Ali, et al. "Guidelines for assessing the accuracy of log message template identification techniques." Proceedings of the 44th International Conference on Software Engineering. 2022.
+
+[8]: Meyarivan, T., Kalyanmoy Deb, Amrit Pratap, and Sameer Agarwal. "A fast and elitist multiobjective genetic algorithm: NSGA-II." IEEE Trans Evol Comput 6, no. 2 (2002): 182-197.
+
+[9]: Coello, CA Coello, and Maximino Salazar Lechuga. "MOPSO: A proposal for multiple objective particle swarm optimization." Proceedings of the 2002 Congress on Evolutionary Computation. CEC'02 (Cat. No. 02TH8600). Vol. 2. IEEE, 2002.
+
+[10]: Zhang, Qingfu, and Hui Li. "MOEA/D: A multiobjective evolutionary algorithm based on decomposition." IEEE Transactions on evolutionary computation 11.6 (2007): 712-731.
+
+[11]: Deb, Kalyanmoy, and Jayavelmurugan Sundar. "Reference point based multi-objective optimization using evolutionary algorithms." Proceedings of the 8th annual conference on Genetic and evolutionary computation. 2006.
+
+[12]: Beume, Nicola, Boris Naujoks, and Michael Emmerich. "SMS-EMOA: Multiobjective selection based on dominated hypervolume." European Journal of Operational Research 181.3 (2007): 1653-1669.
+
+[13]: Wang, Zhenkun, Yew-Soon Ong, and Hisao Ishibuchi. "On scalable multiobjective test problems with hardly dominated boundaries." IEEE Transactions on Evolutionary Computation 23.2 (2018): 217-231.
+
+[14]: J. Blank and K. Deb, “pymoo: Multi-objective optimization in python”, IEEE Access, vol. 8, pp. 89 497–89 509, 2020.
 
