@@ -64,7 +64,7 @@ Nemenyi Test: The Nemenyi test is a post-hoc test that is performed after the Fr
 
 <p align="center"><img src="images/baselines_comparison3.png" width="800"><br>Comparisons of solution sets from all algorithms in terms of IGD, $\Delta$, and Time</p>
 
-##### 4.2.1.2 Stastical Test
+##### 4.2.1.2 Statistical Test
 
 The Friedman test is a non-parametric statistical test used to compare multiple paired samples. The test is based on ranking the data within each block (i.e., each sample) and comparing the average ranks between the different groups. The following table shows the p-values of the Friedman test for the five datasets on IGD and $\Delta$ metrics.
 
