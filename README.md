@@ -1,14 +1,17 @@
 # OptLLM
-Repository for the paper: OptLLM: Assigning Jobs to Large Language Models with Higher Accuracy at Lower Cost
+OptLLM is a comprehensive framework designed to optimize the allocation of queries to LLM services. It considers both the cost of invocation and performance metrics to provide the best possible query distribution. OptLLM operates in two modes:
+- **OptLLM-S**: Focuses on a single-objective optimization, prioritizing either cost or performance.
+- **OptLLM-M**: Employs a multi-objective optimization strategy, balancing both cost and performance to achieve an optimal trade-off. OptLLM also incorporates robust aware prediction to achieve good prediction performance with a small training data size.
 
-Abstract: Large Language Models (LLMs) have garnered considerable attention owing to their remarkable capabilities, leading to an increasing number of companies offering LLMs as services. Different LLMs achieve different performance at different cost. A challenge for users lies in choosing the LLMs that best fit their needs, balancing cost and performance. In this paper, we propose a framework for addressing the cost-effective query allocation problem for LLMs. Given a set of input queries and candidate LLMs, our framework, named OptLLM, provides users with a range of optimal solutions to choose from, aligning with their budget constraints and performance preferences, including options for maximizing accuracy and minimizing cost. OptLLM predicts the performance of candidate LLMs on each query using a multi-label classification model with uncertainty estimation and then iteratively generates a set of non-dominated solutions by destructing and reconstructing the current solution. To evaluate the effectiveness of OptLLM, we conduct extensive experiments on various types of tasks, including text classification, question answering, sentiment analysis, reasoning, and log parsing. Our experimental results demonstrate that OptLLM substantially reduces costs by 2.40% to 49.18% while achieving the same accuracy as the best LLM. Compared to other multi-objective optimization algorithms, OptLLM improves accuracy by 2.94% to 69.05% at the same cost or saves costs by 8.79% and 95.87% while maintaining the highest attainable accuracy.
 ## 1. Framework
 
 <p align="center"><img src="images/framework.png" width="800"><br>An overview of OptLLM</p>
 
-OptLLM, an efficient framework for selecting the most suitable LLM API for a given set of jobs, aiming to optimize cost and performance. OptLLM consists of two components: prediction and optimization.
-The prediction component employs multi-label classification to predict the possibility of candidate LLMs processing each query successfully. To handle prediction uncertainty, OptLLM uses a weighted mean to aggregate bootstrap sample predictions and calculate the standard deviation across samples to quantify the uncertainty. The optimization component initializes with two extreme solutions: one with the highest predicted accuracy and another with the lowest cost. OptLLM then iteratively generates non-dominated solutions through a destruction and reconstruction process. 
+The framework comprises two components: prediction and optimization. 
 
+The prediction component employs multi-label classification to predict the possibility of candidate LLMs processing each query successfully. To handle prediction uncertainty, OptLLM uses a weighted mean to aggregate bootstrap sample predictions and calculates the standard deviation across samples to quantify the uncertainty. 
+
+While the optimization component differs in implementation between the two modes, it shares core techniques. OptLLM-S shares the destruction and reconstruction with OptLLM-M but includes an additional refinement stage to target solutions that fully utilize the given budget or reach the expected accuracy.
 ## 2. Benchmarks
 
 ### 2.1 Natural Language Processing (NLP) jobs
@@ -131,6 +134,9 @@ The source code of the baselines is available under `OptLLM/baselines` directory
 | `moead.py`   | Multi-objective EA with Decomposition (MOEA/D)                            |
 | `moeadgen.py`| MOEA/D-GEN                                                                |
 | `mopso.py`   | Multi-objective Particle Swarm Optimization (MOPSO)                       |
+
+[//]: # (## Citation)
+
 
 ## Reference
 
