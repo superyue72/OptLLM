@@ -13,11 +13,13 @@ The prediction component employs multi-label classification to predict the possi
 
 While the optimization component differs in implementation between the two modes, it shares core techniques. OptLLM-S shares the destruction and reconstruction with OptLLM-M but includes an additional refinement stage to target solutions that fully utilize the given budget or reach the expected accuracy.
 ## 2. Benchmarks
+
 ### 2.1 Natural Language Processing (NLP) jobs
 To show the generality of OptLLM on different types of jobs, we have chosen four general natural language processing tasks, including text classification(AGNEWS[1]), question answering (COQA[2]), sentiment analysis (HEADLINES[3]),  and reasoning(SCIQ[4]). 12 candidate LLMs are selected from 4 mainstream providers: OpenAI (GPT-Curie, ChatGPT, GPT-3, and GPT-4), AI21 (J1-Large, J1-Grande, and J1-Jumbo), Anthropic (Xlarge and Medium), and EleutherAI (GPT-J, FAIRSEQ, and GPT-Neox). The raw data is provided by Chen et al.[5], which contains the inputs (prompts) sent to the LLMs, ground truth references, LLM outputs, and cost. 
 
 ### 2.2 Domain-specific tasks
 Furthermore, we have chosen an intelligent software engineering (SE) task, specifically focusing on LLM-based log parsing. We utilize log data sourced from the LogPai benchmark[6,7] to interface with 8 LLM APIs, including TogertherAI (llama2_7b, llama2_13b, llama2_70b, Mixtral_8x7B, Yi_34B, and Yi_6B), AI21(J2-Mid and J2-Ultra).} The LogPai benchmark consists of log data from 16 systems, including distributed systems, supercomputers, operating systems, mobile systems, server applications, and standalone software. The raw data includes inputs (queries and full prompts) sent to the LLMs, ground truth references, LLM outputs, and the corresponding execution costs. The details of datasets are listed in Table.
+
 
 ## 3. Baselines and Parameter Setting
 ### 3.1 Baselines
@@ -37,7 +39,7 @@ Optuna is a widely used hyperparameter optimization package. To ensure the effec
 | MOEA/D-GEN | weight_generation: 'random', decomposition: 'tchebycheff', neighbours: 24                                                         |
 | MOPSO      | omega: 0.7887, c1: 0.7497, c2: 0.1537, v_coeff: 0.9518                                                                            |
 
-The record of the tunning process is available under `OptLLM/parameter_setting/res` directory.
+The record of the tunning process is available under the `OptLLM/parameter_setting/res` directory.
 ## 4 Results
 ### 4.1 Metrics 
 #### 4.1 Evaluating single solution performance
@@ -51,7 +53,7 @@ When assessing the performance of a single solution, such as submitting all jobs
 
 - Computation time: The time for obtaining the solution set, calculated by minute.</p>
 
-### 4.2 Resutls and Analysis
+### 4.2 Results and Analysis
 To verify the comparison, we conduct a statistical test to evaluate the performance of OptLLM and the baselines. We use the following statistical tests:
 
 Friedman Test: The Friedman test is a non-parametric statistical test that ranks the algorithms for each dataset separately. It tests the null hypothesis that all algorithms perform equally well. If the null hypothesis is rejected, it means that there are significant differences among the algorithms' performances.
@@ -102,7 +104,7 @@ Overall, the Friedman test results for all five datasets show extremely small p-
 <p align="center"><img src="images/gn.png" width="800"><br>Comparison of OptLLM with different settings of GN (N: number of generated solutions)</p>
 
 ## 5. Requirements
-All the code is available under `LocalSearch` directory.
+All the code is available under the `LocalSearch` directory.
 ### 5.1 Library
 1. Python 3.11
 2. Pymoo
@@ -117,10 +119,12 @@ $ pip install -r requirements.txt
 $ python main.py $
 
 ### 5.3 Source code
-All source code is available under `OptLLM/igs` directory.
+All source code is available under the `OptLLM/igs` directory.
+
 
 We used the standard version of NSGA-II, R-NSGA-II and SMS-EMOA implemented in the Pymoo library[14], and MOPSO and MOEA/D in the Pygmo. 
 The source code of the baselines is available under `OptLLM/baselines` directory.
+
 
 | script       | Description                                                               |
 | ------------ |---------------------------------------------------------------------------|
