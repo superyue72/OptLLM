@@ -21,13 +21,8 @@ To show the generality of OptLLM on different types of jobs, we have chosen four
 Furthermore, we have chosen an intelligent software engineering (SE) task, specifically focusing on LLM-based log parsing. We utilize log data sourced from the LogPai benchmark[6,7] to interface with 8 LLM APIs, including TogertherAI (llama2_7b, llama2_13b, llama2_70b, Mixtral_8x7B, Yi_34B, and Yi_6B), AI21(J2-Mid and J2-Ultra).} The LogPai benchmark consists of log data from 16 systems, including distributed systems, supercomputers, operating systems, mobile systems, server applications, and standalone software. The raw data includes inputs (queries and full prompts) sent to the LLMs, ground truth references, LLM outputs, and the corresponding execution costs. The details of datasets are listed in Table.
 
 
-## 3. Baselines and Parameter Setting
-### 3.1 Baselines
-#### 3.1.1 Individual LLM
-We evaluate the performance of assigning all jobs to a single candidate LLM. We submit the entire set of jobs to each individual LLM and assess the resulting cost and the proportion of jobs that have been successfully completed.
-#### 3.1.2 Multi-objective optimization algorithms
-OptLLM utilizes a heuristic search-based algorithm in optimization. We compare the effectiveness of this algorithm with well-known multi-objective optimization algorithms, including the Non-dominated Sorting Genetic Algorithm (NSGA-\rom{2})[8], Multi-objective Particle Swarm Optimisation (MOPSO)[9], and Multi-objective Evolutionary Algorithm with Decomposition (MOEA/D)[10]. These three algorithms have been extensively studied and have proven to be effective in solving a wide range of multi-objective optimization problems. In addition, three variants of classic algorithms are also compared, including R-NSGA-\rom{2}[11], SMS-EMOA[12], and MOEA/D-GEN[13]. It is important to note that all the evaluated multi-objective optimization algorithms are integrated with the same prediction component as OptLLM, to enable a fair comparison of the optimization strategies. 
-### 3.2 Parameter Setting
+## 3. Baselines Parameter Setting
+
 Optuna is a widely used hyperparameter optimization package. To ensure the effectiveness and efficiency of all algorithms, we conduct parameter tuning using Optuna to choose optimal parameter settings. Based on the experiments, the parameters of algorithms are set as follows:
 
 | Algorithm  | Parameter Settings                                                                                                                |
@@ -40,39 +35,35 @@ Optuna is a widely used hyperparameter optimization package. To ensure the effec
 | MOPSO      | omega: 0.7887, c1: 0.7497, c2: 0.1537, v_coeff: 0.9518                                                                            |
 
 The record of the tunning process is available under the `OptLLM/parameter_setting/res` directory.
-## 4 Results
-### 4.1 Metrics 
-#### 4.1 Evaluating single solution performance
-When assessing the performance of a single solution, such as submitting all jobs to an individual LLM, a direct comparison of the optimization objectives is feasible. 
-- $f_{cost}$: total cost of invoking LLM APIs
-- $f_{acc}$: the percentage of jobs processed accurately
-#### 4.2 Multi-objective optimization evaluation metrics
-- Inverted Generational Distance (IGD): The IGD metric is used to measure the distance between the obtained solution set and the Pareto front (reference point set). A lower value of IGD represents a better performance.</p>
+## 4 Additional Results
 
-- $\Delta$ metric: The $\Delta$ metric assesses the diversity and distribution of solutions across the Pareto front by measuring Euclidean distances between solutions and two extreme solutions.
-
-- Computation time: The time for obtaining the solution set, calculated by minute.</p>
-
-### 4.2 Results and Analysis
+### 4.1 Statistical Analysis
 To verify the comparison, we conduct a statistical test to evaluate the performance of OptLLM and the baselines. We use the following statistical tests:
 
 Friedman Test: The Friedman test is a non-parametric statistical test that ranks the algorithms for each dataset separately. It tests the null hypothesis that all algorithms perform equally well. If the null hypothesis is rejected, it means that there are significant differences among the algorithms' performances.
 
 Nemenyi Test: The Nemenyi test is a post-hoc test that is performed after the Friedman test if the null hypothesis is rejected. It is used to determine which specific pairs of algorithms have significant differences in their performance.
-#### 4.2.1 RQ1: Comparison with the baselines
-##### 4.2.1.1 Results
-<p align="center"><img src="images/individual_comparison.png" width="500"><br>Cost savings by OptLLM compared with the individual LLM</p>
 
-<p align="center"><img src="images/baselines_comparison.png" width="800"><br>The solution with the highest accuracy by all algorithms</p>
+##### 4.1.1 Statistical Test on OptLLM-S
 
-<p align="center"><img src="images/baselines_comparison2.png" width="800"><br>Cost ($f_{cost}$) savings by OptLLM to match the baseline's performance</p>
+Friedman test: Accuracy improvement achieved by OptLLM-S compared to individual LLMs:
 
-<p align="center"><img src="images/baselines_comparison3.png" width="800"><br>Comparisons of solution sets from all algorithms in terms of IGD, $\Delta$, and Time</p>
+| Dataset    | AGNEWS   | COQA | HEADLINES | SCIQ     | LogPai   |
+|------------|----------|--------|-----------|----------|----------|
+| P-value    | 2.42e-10 |6.95e-10 | 4.31e-9   | 1.59e-10 | 6.20e-11 |
 
-##### 4.2.1.2 Statistical Test
 
-The Friedman test is a non-parametric statistical test used to compare multiple paired samples. The test is based on ranking the data within each block (i.e., each sample) and comparing the average ranks between the different groups. The following table shows the p-values of the Friedman test for the five datasets on IGD and $\Delta$ metrics.
+Friedman test: Comparisons between OptLLM-S and Single Objective Optimization Algorithms in Cost and Savings
 
+| Dataset    | AGNEWS  | COQA    | HEADLINES | SCIQ     | LogPai   |
+|------------|---------|---------|-----------|----------|----------|
+| P-value    | 4.54e-5 | 4.54e-5 | 4.54e-5  | 4.54e-5  | 4.54e-5  |
+
+Conclusion: the p-value indicates the differences observed between the compared groups are statistically significant. In the comparison for the OptLLM-S with single objective optimization algorithms, the ranking of the algorithms might be extremely consistent across all datasets. 
+
+##### 4.1.2 Statistical Test on OptLLM-M
+
+The following table shows the p-values of the Friedman test for the five datasets on IGD and $\Delta$ metrics.
 
 Friedman test results for IGD metric:
 
@@ -87,21 +78,10 @@ Friedman test results for $\Delta$ metric:
 |------------|---------|--------|-----------|---------|---------|
 | P-value    | 4.68e-8 |3.67e-10| 4.50e-7   | 5.81e-9 | 2.55e-6 |
 
-Overall, the Friedman test results for all five datasets show extremely small p-values, indicating strong evidence against the null hypothesis. This suggests that there are significant differences between the groups being compared for each dataset. The results provide compelling evidence to reject the null hypothesis and accept the alternative hypothesis that at least one group differs from the others.
+Conclusion: overall, the Friedman test results for all five datasets show extremely small p-values, indicating strong evidence against the null hypothesis. This suggests that there are significant differences between the groups being compared for each dataset. The results provide compelling evidence to reject the null hypothesis and accept the alternative hypothesis that at least one group differs from the others.
 
-#### 4.2.2 RQ2: Effect of Core Techniques
-<p align="center"><img src="images/ablation_study.png" width="800"><br>Ablation study of OptLLM</p>
+[//]: # (### 4.2 Ablation Study on OptLLM-S)
 
-#### 4.2.3 RQ3: Effect of Hyper-Parameter Setting
-##### 4.2.3.1 The training data size of prediction component
-<p align="center"><img src="images/training_size.png" width="500"><br>Results under different training data sizes</p>
-
-##### 4.2.3.2  The robustness parameter ``` α ```:
-<p align="center"><img src="images/alpha.png" width="500"><br>Accuracy of prediction model with different $\alpha$</p>
-
-
-##### 4.2.3.3  The grid parameter ``` GN```:
-<p align="center"><img src="images/gn.png" width="800"><br>Comparison of OptLLM with different settings of GN (N: number of generated solutions)</p>
 
 ## 5. Requirements
 All the code is available under the `LocalSearch` directory.
